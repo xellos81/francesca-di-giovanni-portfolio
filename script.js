@@ -14,39 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 1200);
     
-    // ===== CUSTOM CURSOR =====
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorRing = document.querySelector('.cursor-ring');
-    
-    if (cursorDot && cursorRing && window.innerWidth > 768) {
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
-        });
-        
-        // Smooth ring follow
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            cursorRing.style.left = ringX + 'px';
-            cursorRing.style.top = ringY + 'px';
-            requestAnimationFrame(animateRing);
-        }
-        animateRing();
-        
-        // Cursor hover effect
-        const hoverElements = document.querySelectorAll('a, button, .project-row, .service-card');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-        });
-    }
-    
     // ===== SCROLL PROGRESS =====
     const scrollProgress = document.querySelector('.scroll-progress');
     window.addEventListener('scroll', () => {
