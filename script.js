@@ -163,166 +163,47 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         });
         
-        // Portfolio - Featured (Full Bleed) Animation
-        gsap.utils.toArray('.project-featured').forEach((featured) => {
-            const img = featured.querySelector('.project-image-full img');
-            const overlay = featured.querySelector('.project-overlay');
+        // Portfolio - Clean Alternating Layout Animation
+        gsap.utils.toArray('.project-row').forEach((row, i) => {
+            const info = row.querySelector('.project-info');
+            const img = row.querySelector('.project-image img');
+            const isReverse = row.classList.contains('project-row-reverse');
             
+            // Image animation
             if (img) {
                 gsap.fromTo(img,
-                    { scale: 1.1, opacity: 0 },
+                    { 
+                        opacity: 0, 
+                        scale: 1.05 
+                    },
                     {
-                        scale: 1,
                         opacity: 1,
-                        duration: 1.2,
-                        ease: 'power3.out',
+                        scale: 1,
+                        duration: 0.9,
+                        ease: 'power2.out',
                         scrollTrigger: {
-                            trigger: featured,
+                            trigger: row,
                             start: 'top 80%',
                             toggleActions: 'play none none none'
                         }
                     }
                 );
             }
-            if (overlay) {
-                gsap.fromTo(overlay,
-                    { y: 50, opacity: 0 },
-                    {
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.8,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: featured,
-                            start: 'top 60%',
-                            toggleActions: 'play none none none'
-                        },
-                        delay: 0.3
-                    }
-                );
-            }
-        });
-        
-        // Portfolio - Duo Items Animation
-        gsap.utils.toArray('.project-duo-item').forEach((item, i) => {
-            const img = item.querySelector('img');
-            const info = item.querySelector('.project-info');
             
-            if (img) {
-                gsap.fromTo(img,
-                    { y: 40, opacity: 0 },
-                    {
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.8,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: item,
-                            start: 'top 80%',
-                            toggleActions: 'play none none none'
-                        },
-                        delay: i * 0.15
-                    }
-                );
-            }
+            // Info animation
             if (info) {
                 gsap.fromTo(info,
-                    { y: 30, opacity: 0 },
+                    { 
+                        opacity: 0, 
+                        y: 30 
+                    },
                     {
+                        opacity: 1,
                         y: 0,
-                        opacity: 1,
-                        duration: 0.7,
-                        ease: 'power3.out',
+                        duration: 0.8,
+                        ease: 'power2.out',
                         scrollTrigger: {
-                            trigger: item,
-                            start: 'top 80%',
-                            toggleActions: 'play none none none'
-                        },
-                        delay: 0.2 + i * 0.15
-                    }
-                );
-            }
-        });
-        
-        // Portfolio - Aside Layout Animation
-        gsap.utils.toArray('.project-aside').forEach((aside) => {
-            const img = aside.querySelector('.project-image-large img');
-            const content = aside.querySelector('.project-aside-content');
-            
-            if (img) {
-                gsap.fromTo(img,
-                    { x: 50, opacity: 0 },
-                    {
-                        x: 0,
-                        opacity: 1,
-                        duration: 1,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: aside,
-                            start: 'top 75%',
-                            toggleActions: 'play none none none'
-                        }
-                    }
-                );
-            }
-            if (content) {
-                gsap.fromTo(content,
-                    { x: -50, opacity: 0 },
-                    {
-                        x: 0,
-                        opacity: 1,
-                        duration: 0.9,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: aside,
-                            start: 'top 75%',
-                            toggleActions: 'play none none none'
-                        },
-                        delay: 0.2
-                    }
-                );
-            }
-        });
-        
-        // Portfolio Project Spreads - Scroll Reveal
-        gsap.utils.toArray('.project-spread').forEach((spread) => {
-            const content = spread.querySelector('.project-content');
-            const image = spread.querySelector('.project-image');
-            const isReverse = spread.classList.contains('project-spread-reverse');
-            
-            if (content && image) {
-                // Image animation
-                gsap.fromTo(image,
-                    { 
-                        opacity: 0, 
-                        x: isReverse ? -50 : 50 
-                    },
-                    {
-                        opacity: 1,
-                        x: 0,
-                        duration: 1,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: spread,
-                            start: 'top 80%',
-                            toggleActions: 'play none none none'
-                        }
-                    }
-                );
-                
-                // Content animation
-                gsap.fromTo(content,
-                    { 
-                        opacity: 0, 
-                        x: isReverse ? 50 : -50 
-                    },
-                    {
-                        opacity: 1,
-                        x: 0,
-                        duration: 0.9,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: spread,
+                            trigger: row,
                             start: 'top 80%',
                             toggleActions: 'play none none none'
                         },
@@ -400,20 +281,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
     } else {
         // Fallback - show elements without animation
-        document.querySelectorAll('.hero-content > *, .section-header, .service-card, .project-featured, .project-duo-item, .project-aside, .project-spread, .about-spread, .contact-text, .contact-link').forEach(el => {
+        document.querySelectorAll('.hero-content > *, .section-header, .service-card, .project-row, .about-spread, .contact-text, .contact-link').forEach(el => {
             el.style.opacity = '1';
             el.style.transform = 'none';
         });
     }
 
     // ===== PORTFOLIO HOVER EFFECT =====
-    const portfolioItems = document.querySelectorAll('.project-featured, .project-duo-item, .project-aside, .project-spread');
+    const portfolioItems = document.querySelectorAll('.project-row');
     
     portfolioItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             const img = item.querySelector('img');
             if (img && typeof gsap !== 'undefined') {
-                gsap.to(img, { scale: 1.03, duration: 0.6, ease: 'power2.out' });
+                gsap.to(img, { scale: 1.03, duration: 0.5, ease: 'power2.out' });
             } else if (img) {
                 img.style.transform = 'scale(1.03)';
             }
@@ -422,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('mouseleave', () => {
             const img = item.querySelector('img');
             if (img && typeof gsap !== 'undefined') {
-                gsap.to(img, { scale: 1, duration: 0.6, ease: 'power2.out' });
+                gsap.to(img, { scale: 1, duration: 0.5, ease: 'power2.out' });
             } else if (img) {
                 img.style.transform = 'scale(1)';
             }
