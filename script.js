@@ -279,22 +279,22 @@ document.addEventListener('DOMContentLoaded', () => {
         
     } else {
         // Fallback - show elements without animation
-        document.querySelectorAll('.hero-content > *, .section-header, .service-card, .portfolio-item, .about-image, .about-text, .contact-text, .contact-link').forEach(el => {
+        document.querySelectorAll('.hero-content > *, .section-header, .service-card, .project-spread, .about-spread, .contact-text, .contact-link').forEach(el => {
             el.style.opacity = '1';
             el.style.transform = 'none';
         });
     }
 
     // ===== PORTFOLIO HOVER EFFECT =====
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const portfolioItems = document.querySelectorAll('.project-spread');
     
     portfolioItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             const img = item.querySelector('img');
             if (img && typeof gsap !== 'undefined') {
-                gsap.to(img, { scale: 1.05, duration: 0.6, ease: 'power2.out' });
+                gsap.to(img, { scale: 1.03, duration: 0.6, ease: 'power2.out' });
             } else if (img) {
-                img.style.transform = 'scale(1.05)';
+                img.style.transform = 'scale(1.03)';
             }
         });
         
