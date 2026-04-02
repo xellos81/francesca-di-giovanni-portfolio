@@ -532,7 +532,7 @@ button {
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: all var(--transition-base);
-    opacity: 0;
+    opacity: 1;
     transform: translateY(30px);
 }
 
@@ -584,7 +584,7 @@ button {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(30px);
 }
 
@@ -703,7 +703,7 @@ button {
 }
 
 .about-image {
-    opacity: 0;
+    opacity: 1;
     transform: translateX(-30px);
 }
 
@@ -721,7 +721,7 @@ button {
 }
 
 .about-text {
-    opacity: 0;
+    opacity: 1;
     transform: translateX(30px);
 }
 
