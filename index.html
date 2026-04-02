@@ -132,7 +132,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Section - Clean Alternating Layout -->
+    <!-- Portfolio Section - Simple Card Grid -->
     <section class="section portfolio" id="portfolio">
         <div class="container">
             <div class="section-header">
@@ -140,83 +140,79 @@
                 <h2 class="section-title">Lavori recenti</h2>
             </div>
             
-            <!-- Project 1: Content Left, Image Right -->
-            <article class="project-row">
-                <div class="project-info">
-                    <span class="project-number">01</span>
-                    <span class="project-category">Branding</span>
-                    <h3 class="project-title">Identità Visiva</h3>
-                    <p class="project-description">Logo, palette colori e brand identity per azienda del territorio. Un sistema visivo coerente che comunica i valori del brand.</p>
-                </div>
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80" alt="Brand Identity" loading="lazy">
-                </div>
-            </article>
-            
-            <!-- Project 2: Image Left, Content Right -->
-            <article class="project-row project-row-reverse">
-                <div class="project-info">
-                    <span class="project-number">02</span>
-                    <span class="project-category">Web Design</span>
-                    <h3 class="project-title">Sito Vetrina</h3>
-                    <p class="project-description">Design responsive per attività commerciale. Esperienza utente intuitiva e visual identity distintiva.</p>
-                </div>
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80" alt="Web Design" loading="lazy">
-                </div>
-            </article>
-            
-            <!-- Project 3: Content Left, Image Right -->
-            <article class="project-row">
-                <div class="project-info">
-                    <span class="project-number">03</span>
-                    <span class="project-category">Packaging</span>
-                    <h3 class="project-title">Design Packaging</h3>
-                    <p class="project-description">Confezione per prodotto artigianale. Un packaging che racconta la storia del prodotto e attira l'attenzione.</p>
-                </div>
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=900&q=80" alt="Packaging" loading="lazy">
-                </div>
-            </article>
-            
-            <!-- Project 4: Image Left, Content Right -->
-            <article class="project-row project-row-reverse">
-                <div class="project-info">
-                    <span class="project-number">04</span>
-                    <span class="project-category">Graphic</span>
-                    <h3 class="project-title">Campagna Grafica</h3>
-                    <p class="project-description">Materiali promozionali per evento culturale. Un sistema grafico coordinato per massimo impatto visivo.</p>
-                </div>
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80" alt="Graphic Campaign" loading="lazy">
-                </div>
-            </article>
-            
-            <!-- Project 5: Content Left, Image Right -->
-            <article class="project-row">
-                <div class="project-info">
-                    <span class="project-number">05</span>
-                    <span class="project-category">Social</span>
-                    <h3 class="project-title">Social Media</h3>
-                    <p class="project-description">Contenuti per Instagram e Facebook. Visual identity coerente per tutti i canali social del brand.</p>
-                </div>
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&q=80" alt="Social Media" loading="lazy">
-                </div>
-            </article>
-            
-            <!-- Project 6: Image Left, Content Right -->
-            <article class="project-row project-row-reverse">
-                <div class="project-info">
-                    <span class="project-number">06</span>
-                    <span class="project-category">Poster</span>
-                    <h3 class="project-title">Poster & Manifesti</h3>
-                    <p class="project-description">Serie di manifesti per evento culturale. Comunicazione visiva incisiva e memorabile.</p>
-                </div>
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=900&q=80" alt="Poster Design" loading="lazy">
-                </div>
-            </article>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div class="project-card-image">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80" alt="Brand Identity" loading="lazy">
+                    </div>
+                    <div class="project-card-content">
+                        <span class="project-card-category">Branding</span>
+                        <h3 class="project-card-title">Identità Visiva</h3>
+                        <p class="project-card-desc">Logo, palette colori e brand identity per azienda del territorio.</p>
+                    </div>
+                </article>
+                
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <div class="project-card-image">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80" alt="Web Design" loading="lazy">
+                    </div>
+                    <div class="project-card-content">
+                        <span class="project-card-category">Web Design</span>
+                        <h3 class="project-card-title">Sito Vetrina</h3>
+                        <p class="project-card-desc">Design responsive per attività commerciale.</p>
+                    </div>
+                </article>
+                
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <div class="project-card-image">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80" alt="Packaging" loading="lazy">
+                    </div>
+                    <div class="project-card-content">
+                        <span class="project-card-category">Packaging</span>
+                        <h3 class="project-card-title">Design Packaging</h3>
+                        <p class="project-card-desc">Confezione per prodotto artigianale.</p>
+                    </div>
+                </article>
+                
+                <!-- Project 4 -->
+                <article class="project-card">
+                    <div class="project-card-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Graphic Campaign" loading="lazy">
+                    </div>
+                    <div class="project-card-content">
+                        <span class="project-card-category">Graphic</span>
+                        <h3 class="project-card-title">Campagna Grafica</h3>
+                        <p class="project-card-desc">Materiali promozionali per evento culturale.</p>
+                    </div>
+                </article>
+                
+                <!-- Project 5 -->
+                <article class="project-card">
+                    <div class="project-card-image">
+                        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Social Media" loading="lazy">
+                    </div>
+                    <div class="project-card-content">
+                        <span class="project-card-category">Social</span>
+                        <h3 class="project-card-title">Social Media</h3>
+                        <p class="project-card-desc">Contenuti per Instagram e Facebook.</p>
+                    </div>
+                </article>
+                
+                <!-- Project 6 -->
+                <article class="project-card">
+                    <div class="project-card-image">
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80" alt="Poster Design" loading="lazy">
+                    </div>
+                    <div class="project-card-content">
+                        <span class="project-card-category">Poster</span>
+                        <h3 class="project-card-title">Poster & Manifesti</h3>
+                        <p class="project-card-desc">Serie di manifesti per evento culturale.</p>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 

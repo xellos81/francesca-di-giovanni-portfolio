@@ -215,51 +215,50 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         });
         
-        // Portfolio - Clean Alternating Layout Animation
-        gsap.utils.toArray('.project-row').forEach((row, i) => {
-            const info = row.querySelector('.project-info');
-            const img = row.querySelector('.project-image img');
-            const isReverse = row.classList.contains('project-row-reverse');
+        // Portfolio - Simple Card Grid Animation
+        gsap.utils.toArray('.project-card').forEach((card, i) => {
+            const img = card.querySelector('.project-card-image img');
+            const content = card.querySelector('.project-card-content');
             
             // Image animation
             if (img) {
                 gsap.fromTo(img,
                     { 
                         opacity: 0, 
-                        scale: 1.05 
+                        y: 20 
                     },
                     {
                         opacity: 1,
-                        scale: 1,
-                        duration: 0.9,
+                        y: 0,
+                        duration: 0.7,
                         ease: 'power2.out',
                         scrollTrigger: {
-                            trigger: row,
-                            start: 'top 80%',
+                            trigger: card,
+                            start: 'top 85%',
                             toggleActions: 'play none none none'
                         }
                     }
                 );
             }
             
-            // Info animation
-            if (info) {
-                gsap.fromTo(info,
+            // Content animation
+            if (content) {
+                gsap.fromTo(content,
                     { 
                         opacity: 0, 
-                        y: 30 
+                        y: 15 
                     },
                     {
                         opacity: 1,
                         y: 0,
-                        duration: 0.8,
+                        duration: 0.6,
                         ease: 'power2.out',
                         scrollTrigger: {
-                            trigger: row,
-                            start: 'top 80%',
+                            trigger: card,
+                            start: 'top 85%',
                             toggleActions: 'play none none none'
                         },
-                        delay: 0.15
+                        delay: 0.1
                     }
                 );
             }
@@ -333,14 +332,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
     } else {
         // Fallback - show elements without animation
-        document.querySelectorAll('.hero-content > *, .section-header, .service-card, .project-row, .about-spread, .contact-text, .contact-link').forEach(el => {
+        document.querySelectorAll('.hero-content > *, .section-header, .service-card, .project-card, .about-spread, .contact-text, .contact-link').forEach(el => {
             el.style.opacity = '1';
             el.style.transform = 'none';
         });
     }
 
     // ===== PORTFOLIO HOVER EFFECT =====
-    const portfolioItems = document.querySelectorAll('.project-row');
+    const portfolioItems = document.querySelectorAll('.project-card');
     
     portfolioItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
