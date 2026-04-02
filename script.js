@@ -163,23 +163,52 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         });
         
-        // Portfolio Items - Scroll Reveal
-        gsap.utils.toArray('.portfolio-item').forEach((item, i) => {
-            gsap.fromTo(item,
-                { opacity: 0, y: 60 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
+        // Portfolio Project Spreads - Scroll Reveal
+        gsap.utils.toArray('.project-spread').forEach((spread, i) => {
+            const content = spread.querySelector('.project-content');
+            const image = spread.querySelector('.project-image');
+            const isReverse = spread.classList.contains('project-spread-reverse');
+            
+            if (content && image) {
+                // Image animation
+                gsap.fromTo(image,
+                    { 
+                        opacity: 0, 
+                        x: isReverse ? -50 : 50 
                     },
-                    delay: i * 0.1
-                }
-            );
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: spread,
+                            start: 'top 80%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
+                
+                // Content animation
+                gsap.fromTo(content,
+                    { 
+                        opacity: 0, 
+                        x: isReverse ? 50 : -50 
+                    },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.9,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: spread,
+                            start: 'top 80%',
+                            toggleActions: 'play none none none'
+                        },
+                        delay: 0.15
+                    }
+                );
+            }
         });
         
         // About Section - Split Animation
