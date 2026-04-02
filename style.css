@@ -223,16 +223,64 @@ button {
     left: 0;
     right: 0;
     height: var(--navbar-height);
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+/* Satin effect - subtle animated sheen */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.15) 50%,
+        transparent 70%
+    );
+    animation: satinSheen 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes satinSheen {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
 }
 
 [data-theme="dark"] .navbar {
-    background: rgba(10, 10, 10, 0.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 10, 10, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .navbar::before {
+    background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 70%
+    );
+}
+
+/* Scrolled state - more opaque and stronger blur */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(15, 15, 15, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {

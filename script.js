@@ -142,15 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         
-        // Add shadow when scrolled
-        if (scrollY > 50) {
-            navbar.style.boxShadow = '0 2px 20px var(--color-card-shadow)';
+        // Add/remove scrolled class for transparent/solid effect
+        if (scrollY > 80) {
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('scrolled');
         }
         
         lastScrollY = scrollY;
-    });
+    }, { passive: true });
 
     // ===== SCROLL INDICATOR HIDE ON SCROLL =====
     const scrollIndicator = document.querySelector('.scroll-indicator');
