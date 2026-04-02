@@ -211,32 +211,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // About Section - Split Animation
-        gsap.fromTo('.about-image',
-            { opacity: 0, x: -50 },
+        // About Section - Editorial Animation
+        gsap.fromTo('.about-image-wrapper',
+            { opacity: 0, x: -60 },
             {
                 opacity: 1,
                 x: 0,
-                duration: 1,
+                duration: 1.2,
                 ease: 'power3.out',
                 scrollTrigger: {
-                    trigger: '.about-content',
-                    start: 'top 80%',
+                    trigger: '.about-spread',
+                    start: 'top 75%',
                     toggleActions: 'play none none none'
                 }
             }
         );
         
-        gsap.fromTo('.about-text',
-            { opacity: 0, x: 50 },
+        gsap.fromTo('.about-content',
+            { opacity: 0, x: 60 },
             {
                 opacity: 1,
                 x: 0,
                 duration: 1,
                 ease: 'power3.out',
                 scrollTrigger: {
-                    trigger: '.about-content',
-                    start: 'top 80%',
+                    trigger: '.about-spread',
+                    start: 'top 75%',
                     toggleActions: 'play none none none'
                 },
                 delay: 0.2
