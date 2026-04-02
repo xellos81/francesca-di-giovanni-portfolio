@@ -1,0 +1,145 @@
+# Francesca Di Giovanni - Designer
+## Profilo per Sito Web
+
+---
+
+## INFORMAZIONI PERSONALI (INVENTATE - DA CONFERMARE)
+
+**Nome:** Francesca Di Giovanni
+**Luogo:** Provincia di Teramo, Abruzzo
+**Settore:** Graphic Design / Web Design / Visual Design
+**Attiva dal:** 2018
+
+---
+
+## PROFILO PROFESSIONALE
+
+Designer freelance con base nella provincia di Teramo. Specializzata in branding visivo, design per piccole-medie imprese del territorio abruzzese, e progetti digitali per aziende locali.
+
+Laureata in Design della Comunicazione presso un'università italiana. Ha sviluppato un approccio personale che unisce la semplicità del design minimalista mediterraneo con elementi di artigianalità tipici della tradizione abruzzese.
+
+---
+
+## SERVIZI OFFERTI
+
+1. **Branding e Identità Visiva**
+   - Logo design
+   - Paletta colori aziendale
+   - Brand identity completa
+   - Biglietteria e carta intestata
+
+2. **Web Design**
+   - Siti vetrina
+   - Landing page
+   - Portfoli online
+   - E-commerce essenziale
+
+3. **Graphic Design**
+   - Manifesti e materiali promozionali
+   - Packaging design
+   - Social media graphics
+   - Presentazioni
+
+4. **Consulenza**
+   - Art direction
+   - Direzione creativa per eventi
+   - Workshop di design di base
+
+---
+
+## STILE E APPROCCIO
+
+**Estetica:** Minimalismo mediterraneo con influenze artigianali. Predilige palette colori ispirate ai paesaggi abruzzesi - blu mare Adriatico, verde colline teramane, terracotta, bianco calce.
+
+**Approccio:** Ascolto attivo del cliente, iterazioni condivise, consegna in tempi ragionevoli. Lavora con approccio "slow design" - poche cose fatte bene.
+
+**Tools:** Adobe Creative Suite, Figma, Canva Pro. Non usa template preconfezionati.
+
+---
+
+## PORTAFOGLIO (DESCRIZIONI - DA AGGIORNARE CON LAVORI REALI)
+
+1. **Branding "Azienda Agricola Terravecchia"** - Restyling completo logo e packaging per azienda vinicola teramana. Palette: verde bottiglia, oro, nero.
+
+2. **Sito Web "B&B Vista Mare Giulianova"** - Design e sviluppo sito vetrina per bed & breakfast sul costa teramana. Stile: bianco, blu, fotografie ampio respiro.
+
+3. **Manifesto "Sagre di Torricella"** - Serie di manifesti per sagre paesane. Typography bold, colori vivaci, elementi folk locali.
+
+4. **Brand Identity "Laboratorio Ceramiche Artes"** - Identità visiva per laboratorio di ceramiche artigianali. Tono: caldo, terracotta, texture naturali.
+
+5. **Web Design "Ristorante Il Gambero"** - Sito e menu digitale per ristorante di pesce. Color scheme: blu/navy con accenti dorati.
+
+---
+
+## CITTA' E ZONA OPERATIVA
+
+- **Base:** Provincia di Teramo (TE), Abruzzo
+- **Operativa in:** Tutto l'Abruzzo, Marche limitrofe
+- **Remote:** Tutta Italia (progetti digitali)
+
+---
+
+## ELEMENTI PER SITO WEB
+
+### Headline suggerite
+- "Design con radici abruzzesi"
+- "Dalla provincia di Teramo, per tutta Italia"
+- "Creazioni che parlano del territorio"
+
+### Chi sono (bio breve)
+"Mi chiamo Francesca Di Giovanni, sono una designer freelance della provincia di Teramo. Creo identità visive e siti web per chi vuole un design autentico, lontano dagli stereotipi. Il mio lavoro nasce dall'ascolto e si sviluppa con cura artigianale."
+
+### MISSION
+"Credo che il buon design debba raccontare una storia. Ogni progetto è un'opportunità per tradurre in immagini e spazi digitali l'essenza di un'azienda, di un'idea, di un luogo."
+
+---
+
+## CONTACT INFO (DA COMPLETARE)
+
+**Email:** 
+**Telefono:** 
+**Instagram:** @francesca_di_gio
+**LinkedIn:** 
+**Dove trovarmi:** Teramo e dintorni, su appuntamento
+
+---
+
+## NOTE TECNICHE PER SVILUPPO SITO
+
+### Target Sito
+Sito vetrina/portfolio personale per acquisizione nuovi clienti nella zona Abruzzo.
+
+### Funzionalità richieste
+- Homepage con introduzione e servizi
+- Pagina portfolio/lavori
+- Pagina "Chi sono"
+- Pagina contatti
+- Blog (opzionale, per articoli su design locale)
+
+### Design Language
+- **Colori primari:** #2C5F2D (verde), #F4A460 (sandy brown/terracotta), #FFFFFF (bianco)
+- **Colori accento:** #1E3A5F (blu scuro)
+- **Font:** Sans-serif moderni (es. Montserrat, Poppins)
+- **Tono:** Professionale ma accessibile, locale ma non provinciale
+- **Immagini:** Alta qualità, reportage più che stock photo
+
+### Struttura Homepage suggerita
+1. Hero section con tagline e CTA
+2. Servizi (3 cards)
+3. Selezione lavori recenti (portfolio grid)
+4. Testimonial/recensioni clienti
+5. CTA finale per contatto
+
+---
+
+## RIFERIMENTI E ISPIRAZIONI
+
+- Designer freelance italiani con stile minimale mediterraneo
+- Portfolio di piccoli studi grafici abruzzesi
+- Instagram di designer che lavorano su branding per agriturismi e aziende agricole
+- Behance: sezioni "Branding" e "Web Design"
+
+---
+
+*File creato: 2026-04-02*
+*Nota: Le informazioni sopra sono inventate basandosi su una persona reale (Francesca Di Giovanni di Teramo) ma non sono state verificate. Sostituire con dati reali prima del lancio.*

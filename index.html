@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francesca Di Giovanni | Designer</title>
+    <meta name="description" content="Designer freelance. Branding, Web Design, Graphic Design.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">FDG</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema">
+                <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#chi-sono">Chi sono</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg" data-parallax="0.3"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Francesca Di Giovanni</h1>
+            <p class="hero-subtitle">Designer</p>
+            <p class="hero-tagline">Branding & Web Design</p>
+            <a href="#servizi" class="btn btn-primary">Scopri i servizi</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="servizi">
+        <div class="container">
+            <h2 class="section-title">Servizi</h2>
+            <div class="services-grid">
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Branding & Identità Visiva</h3>
+                    <p>Logo, palette colori, brand identity completa per aziende che vogliono un'immagine distintiva.</p>
+                </div>
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Siti vetrina, landing page, portfolio online. Design responsive e ottimizzato per conversioni.</p>
+                </div>
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <p>Manifesti, packaging, social media graphics, presentazioni. Comunicazione visiva efficace.</p>
+                </div>
+                <div class="service-card" data-animate>
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Consulenza</h3>
+                    <p>Art direction, direzione creativa, workshop di design. Guida strategica per il tuo progetto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-grid">
+                <article class="portfolio-item" data-animate>
+                    <div class="portfolio-image" data-parallax="0.2">
+                        <div class="placeholder-img color-1"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Brand Identity</h3>
+                        <p>Logo e identità visiva per azienda del territorio</p>
+                    </div>
+                </article>
+                <article class="portfolio-item" data-animate>
+                    <div class="portfolio-image" data-parallax="0.2">
+                        <div class="placeholder-img color-2"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Web Design</h3>
+                        <p>Sito vetrina per attività commerciale</p>
+                    </div>
+                </article>
+                <article class="portfolio-item" data-animate>
+                    <div class="portfolio-image" data-parallax="0.2">
+                        <div class="placeholder-img color-3"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Packaging</h3>
+                        <p>Design packaging per prodotto artigianale</p>
+                    </div>
+                </article>
+                <article class="portfolio-item" data-animate>
+                    <div class="portfolio-image" data-parallax="0.2">
+                        <div class="placeholder-img color-4"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Graphic Campaign</h3>
+                        <p>Materiali promozionali per evento</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="chi-sono">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image" data-animate>
+                    <div class="placeholder-img-portrait"></div>
+                </div>
+                <div class="about-text" data-animate>
+                    <h2 class="section-title">Chi sono</h2>
+                    <p>Sono Francesca Di Giovanni, designer con base in Abruzzo. Lavoro con aziende e professionisti che cercano un design autentico, lontano dagli stereotipi.</p>
+                    <p>Il mio approccio nasce dall'ascolto: ogni progetto è un'opportunità per tradurre in immagini e spazi digitali l'essenza di un'idea, di un'azienda, di un luogo.</p>
+                    <p>Laureata in Design della Comunicazione, ho sviluppato un percorso professionale che mi ha portata a collaborare con realtà su tutto il territorio nazionale.</p>
+                    <div class="about-details">
+                        <div class="detail">
+                            <span class="label">Servizi</span>
+                            <span class="value">Branding, Web, Graphic</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Base</span>
+                            <span class="value">Abruzzo, Italia</span>
+                        </div>
+                        <div class="detail">
+                            <span class="label">Lingue</span>
+                            <span class="value">Italiano, Inglese</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contatti">
+        <div class="container">
+            <h2 class="section-title">Contatti</h2>
+            <div class="contact-content">
+                <div class="contact-text" data-animate>
+                    <p>Hai un progetto in mente? Parliamone. Sono disponibile per collaborazioni su tutto il territorio nazionale.</p>
+                </div>
+                <div class="contact-links" data-animate>
+                    <a href="mailto:info@francescadigiovanni.it" class="contact-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>info@francescadigiovanni.it</span>
+                    </a>
+                    <a href="https://instagram.com/francesca_di_gio" target="_blank" rel="noopener" class="contact-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        <span>@francesca_di_gio</span>
+                    </a>
+                    <a href="https://linkedin.com/in/francescadigiovanni" target="_blank" rel="noopener" class="contact-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">FDG</div>
+                <div class="footer-info">
+                    <p>Francesca Di Giovanni — Designer</p>
+                    <p>Abruzzo, Italia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Francesca Di Giovanni. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
