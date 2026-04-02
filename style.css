@@ -438,7 +438,7 @@ h1, h2, h3, h4 {
     color: var(--color-text-secondary);
 }
 
-/* ===== PORTFOLIO - EDITORIAL MAGAZINE LAYOUT ===== */
+/* ===== PORTFOLIO - MIXED EDITORIAL MAGAZINE LAYOUT ===== */
 .portfolio {
     padding-left: 0;
     padding-right: 0;
@@ -455,7 +455,81 @@ h1, h2, h3, h4 {
     padding: 0 var(--space-lg);
 }
 
-/* Project Spread */
+/* ===== PROJECT: FEATURED (Full Bleed) ===== */
+.project-featured {
+    position: relative;
+    max-width: 1600px;
+    margin: 0 auto var(--space-4xl);
+}
+
+.project-image-full {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image-full img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-3xl) var(--space-3xl) var(--space-3xl);
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    color: white;
+}
+
+.project-overlay .project-number,
+.project-overlay .project-category {
+    color: rgba(255,255,255,0.6);
+}
+
+.project-overlay .project-title {
+    color: white;
+    font-size: clamp(36px, 6vw, 70px);
+}
+
+.project-overlay .project-description {
+    color: rgba(255,255,255,0.8);
+    max-width: 500px;
+}
+
+/* ===== PROJECT: DUO (Side by Side) ===== */
+.project-duo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    max-width: 1400px;
+    margin: 0 auto var(--space-4xl);
+}
+
+.project-duo-item {
+    position: relative;
+}
+
+.project-duo-item .project-image {
+    margin-bottom: var(--space-lg);
+}
+
+.project-duo-item .project-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.project-info .project-title {
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+/* ===== PROJECT: SPREAD (Content + Image) ===== */
 .project-spread {
     display: grid;
     grid-template-columns: 1fr;
@@ -499,7 +573,33 @@ h1, h2, h3, h4 {
     transform: scale(1.02);
 }
 
-/* Project Content Typography */
+/* ===== PROJECT: ASIDE (Large image + content) ===== */
+.project-aside {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto var(--space-4xl);
+}
+
+.project-image-large {
+    overflow: hidden;
+}
+
+.project-image-large img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+}
+
+.project-aside-content {
+    padding: 0 var(--space-lg);
+}
+
+/* ===== PROJECT TYPOGRAPHY (Shared) ===== */
 .project-number {
     font-family: var(--font-display);
     font-size: 12px;
@@ -523,21 +623,21 @@ h1, h2, h3, h4 {
 
 .project-title {
     font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 80px);
+    font-size: clamp(40px, 7vw, 72px);
     font-weight: 300;
     line-height: 0.95;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
     color: var(--color-text);
 }
 
 .project-description {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.8;
     color: var(--color-text-secondary);
     max-width: 400px;
 }
 
-/* Tablet */
+/* ===== TABLET ===== */
 @media (min-width: 768px) {
     .project-spread {
         grid-template-columns: 1fr 1fr;
@@ -552,23 +652,45 @@ h1, h2, h3, h4 {
         order: 1;
     }
     
-    .project-number {
-        font-size: 14px;
+    .project-duo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2xl);
+    }
+    
+    .project-aside {
+        grid-template-columns: 1.5fr 1fr;
+        gap: var(--space-3xl);
+    }
+    
+    .project-aside-content {
+        padding: 0;
+    }
+    
+    .project-image-full img {
+        aspect-ratio: 21 / 9;
+    }
+    
+    .project-title {
+        font-size: clamp(48px, 6vw, 80px);
     }
     
     .project-description {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 
-/* Desktop */
+/* ===== DESKTOP ===== */
 @media (min-width: 1024px) {
     .project-spread {
         gap: var(--space-4xl);
     }
     
     .project-title {
-        font-size: clamp(60px, 7vw, 90px);
+        font-size: clamp(54px, 6vw, 85px);
+    }
+    
+    .project-duo-item .project-title {
+        font-size: clamp(24px, 3vw, 36px);
     }
 }
 
