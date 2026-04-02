@@ -1,6 +1,7 @@
 /* ========================================
    Francesca Di Giovanni - Designer Portfolio
-   JavaScript - Theme, Animations, Utilities
+   JavaScript - Animations & Interactions
+   GSAP ScrollTrigger - Mobile First
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,22 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ===== MOBILE MENU =====
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
+    // ===== BURGER MENU =====
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
     const body = document.body;
     
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenuBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        body.classList.toggle('mobile-menu-open');
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        body.classList.toggle('menu-open');
     });
     
-    navLinks.querySelectorAll('a').forEach(link => {
+    // Close mobile menu on link click
+    mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenuBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            body.classList.remove('mobile-menu-open');
+            burger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            body.classList.remove('menu-open');
         });
     });
 
@@ -72,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== NAVBAR SCROLL EFFECT =====
-    const navbar = document.querySelector('.navbar');
+    // ===== NAVBAR SHRINK ON SCROLL =====
+    const navbar = document.getElementById('navbar');
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -84,76 +87,102 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===== GSAP ANIMATIONS =====
-    if (typeof gsap !== 'undefined') {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         
-        // Register ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
         
-        // Hero Animation - Initial reveal
-        gsap.fromTo('.hero-subtitle', 
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: 'power3.out' }
+        // Hero Animation - Initial load
+        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        
+        heroTl
+            .fromTo('.hero-eyebrow', 
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.8, delay: 0.3 }
+            )
+            .fromTo('.hero-title .hero-line:first-child', 
+                { opacity: 0, y: 60 },
+                { opacity: 1, y: 0, duration: 1 },
+                '-=0.4'
+            )
+            .fromTo('.hero-title .hero-line.italic', 
+                { opacity: 0, y: 60 },
+                { opacity: 1, y: 0, duration: 1 },
+                '-=0.6'
+            )
+            .fromTo('.hero-subtitle', 
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.8 },
+                '-=0.4'
+            )
+            .fromTo('.hero-cta', 
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.8 },
+                '-=0.2'
+            );
+        
+        // Scroll Indicator Animation
+        gsap.fromTo('.scroll-indicator', 
+            { opacity: 0 },
+            { opacity: 1, duration: 1, delay: 1.5 }
         );
         
-        gsap.fromTo('.hero-title',
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 1, delay: 0.4, ease: 'power3.out' }
-        );
-        
-        gsap.fromTo('.hero-tagline',
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, delay: 0.6, ease: 'power3.out' }
-        );
-        
-        gsap.fromTo('.hero .btn',
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.8, delay: 0.8, ease: 'power3.out' }
-        );
-        
-        // Scroll animations for sections
-        const sections = document.querySelectorAll('.section');
-        
-        sections.forEach(section => {
-            const header = section.querySelector('.section-header');
-            const items = section.querySelectorAll('.service-card, .portfolio-item, .about-image, .about-text, .contact-text, .contact-link');
-            
-            if (header) {
-                gsap.fromTo(header,
-                    { opacity: 0, y: 40 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: header,
-                            start: 'top 85%',
-                            toggleActions: 'play none none none'
-                        }
+        // Section Headers - Scroll Reveal
+        gsap.utils.toArray('.section-header').forEach(header => {
+            gsap.fromTo(header,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: header,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
                     }
-                );
-            }
-            
-            if (items.length > 0) {
-                gsap.fromTo(items,
-                    { opacity: 0, y: 40 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.8,
-                        stagger: 0.1,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 75%',
-                            toggleActions: 'play none none none'
-                        }
-                    }
-                );
-            }
+                }
+            );
         });
         
-        // About section special treatment
+        // Service Cards - Staggered Scroll Reveal
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.fromTo(card,
+                { opacity: 0, y: 60 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    },
+                    delay: i * 0.1
+                }
+            );
+        });
+        
+        // Portfolio Items - Scroll Reveal
+        gsap.utils.toArray('.portfolio-item').forEach((item, i) => {
+            gsap.fromTo(item,
+                { opacity: 0, y: 60 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    },
+                    delay: i * 0.1
+                }
+            );
+        });
+        
+        // About Section - Split Animation
         gsap.fromTo('.about-image',
             { opacity: 0, x: -50 },
             {
@@ -163,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: 'power3.out',
                 scrollTrigger: {
                     trigger: '.about-content',
-                    start: 'top 75%',
+                    start: 'top 80%',
                     toggleActions: 'play none none none'
                 }
             }
@@ -176,17 +205,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 x: 0,
                 duration: 1,
                 ease: 'power3.out',
-                delay: 0.2,
                 scrollTrigger: {
                     trigger: '.about-content',
-                    start: 'top 75%',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                delay: 0.2
+            }
+        );
+        
+        // Contact Section
+        gsap.fromTo('.contact-text',
+            { opacity: 0, y: 40 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.contact-content',
+                    start: 'top 85%',
                     toggleActions: 'play none none none'
                 }
             }
         );
+        
+        gsap.utils.toArray('.contact-link').forEach((link, i) => {
+            gsap.fromTo(link,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: link,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    },
+                    delay: i * 0.1
+                }
+            );
+        });
+        
     } else {
-        // Fallback if GSAP not loaded - simple fade in
-        document.querySelectorAll('.hero-content > *').forEach((el, i) => {
+        // Fallback - show elements without animation
+        document.querySelectorAll('.hero-content > *, .section-header, .service-card, .portfolio-item, .about-image, .about-text, .contact-text, .contact-link').forEach(el => {
             el.style.opacity = '1';
             el.style.transform = 'none';
         });
@@ -198,42 +262,20 @@ document.addEventListener('DOMContentLoaded', () => {
     portfolioItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             const img = item.querySelector('img');
-            if (img) {
+            if (img && typeof gsap !== 'undefined') {
+                gsap.to(img, { scale: 1.05, duration: 0.6, ease: 'power2.out' });
+            } else if (img) {
                 img.style.transform = 'scale(1.05)';
             }
         });
         
         item.addEventListener('mouseleave', () => {
             const img = item.querySelector('img');
-            if (img) {
+            if (img && typeof gsap !== 'undefined') {
+                gsap.to(img, { scale: 1, duration: 0.6, ease: 'power2.out' });
+            } else if (img) {
                 img.style.transform = 'scale(1)';
             }
-        });
-    });
-
-    // ===== SERVICE CARDS HOVER =====
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card, { y: -4, duration: 0.3, ease: 'power2.out' });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
-        });
-    });
-
-    // ===== CONTACT LINKS ANIMATION =====
-    const contactLinks = document.querySelectorAll('.contact-link');
-    
-    contactLinks.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            gsap.to(link, { x: 8, duration: 0.3, ease: 'power2.out' });
-        });
-        
-        link.addEventListener('mouseleave', () => {
-            gsap.to(link, { x: 0, duration: 0.3, ease: 'power2.out' });
         });
     });
 
@@ -242,10 +284,15 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
+            // Close mobile menu if resized to desktop
             if (window.innerWidth > 768) {
-                mobileMenuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-                body.classList.remove('mobile-menu-open');
+                burger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+            // Refresh ScrollTrigger
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
             }
         }, 250);
     });
@@ -256,6 +303,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const placeholder = document.createElement('div');
             placeholder.className = 'image-placeholder';
             placeholder.textContent = 'Immagine non disponibile';
+            placeholder.style.cssText = `
+                width: 100%;
+                height: 100%;
+                min-height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: var(--color-bg-secondary);
+                color: var(--color-text-muted);
+                font-size: 13px;
+            `;
             this.replaceWith(placeholder);
         });
     });
