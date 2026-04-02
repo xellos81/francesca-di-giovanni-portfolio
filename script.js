@@ -1,14 +1,14 @@
 /* ========================================
-   Francesca Di Giovanni - Designer Website
-   JavaScript - Theme, Mobile Menu, Utilities
+   Francesca Di Giovanni - Designer Portfolio
+   JavaScript - Theme, Animations, Utilities
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     // ===== THEME TOGGLE =====
     const themeToggle = document.getElementById('themeToggle');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     
-    // Check for saved theme or system preference
     function getTheme() {
         const saved = localStorage.getItem('theme');
         if (saved) return saved;
@@ -20,17 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', theme);
     }
     
-    // Initialize theme
     setTheme(getTheme());
     
-    // Theme toggle click
     themeToggle.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
         setTheme(next);
     });
     
-    // Listen for system theme changes
     prefersDark.addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
             setTheme(e.matches ? 'dark' : 'light');
@@ -48,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.toggle('mobile-menu-open');
     });
     
-    // Close menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenuBtn.classList.remove('active');
@@ -78,71 +74,123 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== NAVBAR SCROLL EFFECT =====
     const navbar = document.querySelector('.navbar');
-    let lastScrollY = 0;
     
     window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        
-        // Add/remove scrolled class for navbar style
-        if (scrollY > 50) {
+        if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-        
-        lastScrollY = scrollY;
     });
 
-    // ===== SCROLL INDICATOR =====
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
-            }
-        });
-    }
-
-    // ===== HERO ANIMATION =====
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        setTimeout(() => {
-            heroContent.style.opacity = '0';
-            heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            heroContent.style.transform = 'translateY(20px)';
-            
-            requestAnimationFrame(() => {
-                heroContent.style.opacity = '1';
-                heroContent.style.transform = 'translateY(0)';
-            });
-        }, 300);
-    }
-
-    // ===== ACTIVE NAV LINK =====
-    const sections = document.querySelectorAll('section[id]');
-    const navLinksItems = document.querySelectorAll('.nav-links a');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
+    // ===== GSAP ANIMATIONS =====
+    if (typeof gsap !== 'undefined') {
+        
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hero Animation - Initial reveal
+        gsap.fromTo('.hero-subtitle', 
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: 'power3.out' }
+        );
+        
+        gsap.fromTo('.hero-title',
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 1, delay: 0.4, ease: 'power3.out' }
+        );
+        
+        gsap.fromTo('.hero-tagline',
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.6, ease: 'power3.out' }
+        );
+        
+        gsap.fromTo('.hero .btn',
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.8, ease: 'power3.out' }
+        );
+        
+        // Scroll animations for sections
+        const sections = document.querySelectorAll('.section');
         
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
+            const header = section.querySelector('.section-header');
+            const items = section.querySelectorAll('.service-card, .portfolio-item, .about-image, .about-text, .contact-text, .contact-link');
             
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
+            if (header) {
+                gsap.fromTo(header,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: header,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
+            }
+            
+            if (items.length > 0) {
+                gsap.fromTo(items,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        stagger: 0.1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top 75%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
             }
         });
         
-        navLinksItems.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
+        // About section special treatment
+        gsap.fromTo('.about-image',
+            { opacity: 0, x: -50 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.about-content',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
             }
+        );
+        
+        gsap.fromTo('.about-text',
+            { opacity: 0, x: 50 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out',
+                delay: 0.2,
+                scrollTrigger: {
+                    trigger: '.about-content',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    } else {
+        // Fallback if GSAP not loaded - simple fade in
+        document.querySelectorAll('.hero-content > *').forEach((el, i) => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
         });
-    });
+    }
 
     // ===== PORTFOLIO HOVER EFFECT =====
     const portfolioItems = document.querySelectorAll('.portfolio-item');
@@ -163,12 +211,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ===== SERVICE CARDS HOVER =====
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, { y: -4, duration: 0.3, ease: 'power2.out' });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
+        });
+    });
+
+    // ===== CONTACT LINKS ANIMATION =====
+    const contactLinks = document.querySelectorAll('.contact-link');
+    
+    contactLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            gsap.to(link, { x: 8, duration: 0.3, ease: 'power2.out' });
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            gsap.to(link, { x: 0, duration: 0.3, ease: 'power2.out' });
+        });
+    });
+
     // ===== RESIZE HANDLER =====
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            // Close mobile menu if window is resized to desktop size
             if (window.innerWidth > 768) {
                 mobileMenuBtn.classList.remove('active');
                 navLinks.classList.remove('active');
@@ -180,50 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== HANDLE BROKEN IMAGES =====
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
-            // Create a placeholder for broken images
             const placeholder = document.createElement('div');
             placeholder.className = 'image-placeholder';
-            placeholder.style.cssText = `
-                width: 100%;
-                height: 100%;
-                min-height: 200px;
-                background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--color-text-secondary);
-                font-size: 0.875rem;
-                text-align: center;
-                padding: 1rem;
-            `;
             placeholder.textContent = 'Immagine non disponibile';
             this.replaceWith(placeholder);
-        });
-    });
-
-    // ===== CONTACT LINKS ANIMATION =====
-    const contactLinks = document.querySelectorAll('.contact-link');
-    
-    contactLinks.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            link.style.transform = 'translateX(5px)';
-        });
-        
-        link.addEventListener('mouseleave', () => {
-            link.style.transform = 'translateX(0)';
-        });
-    });
-
-    // ===== SERVICE CARDS HOVER =====
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
         });
     });
 
